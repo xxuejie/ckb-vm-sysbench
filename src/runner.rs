@@ -2,9 +2,11 @@ use ckb_mock_tx_types::{MockTransaction, ReprMockTransaction, Resource};
 use ckb_script::{ScriptGroupType, TransactionScriptsVerifier};
 use ckb_types::core::cell::resolve_transaction;
 use clap::{arg, command, value_parser};
+use flate2::read::GzDecoder;
 use serde_json::from_str as from_json_str;
 use std::collections::HashSet;
-use std::fs::read_to_string;
+use std::fs::{read_to_string, File};
+use std::io::Read;
 use std::sync::Arc;
 use std::time::{Duration, SystemTime};
 
@@ -41,7 +43,15 @@ fn main() {
         .get_one::<String>("script-type")
         .expect("script type");
 
-    let content = read_to_string(tx_file).expect("read");
+    let content = if tx_file.ends_with(".gz") {
+        let file = File::open(tx_file).expect("open");
+        let mut gz = GzDecoder::new(file);
+        let mut s = String::new();
+        gz.read_to_string(&mut s).expect("gz read");
+        s
+    } else {
+        read_to_string(tx_file).expect("read")
+    };
     let repr_tx: ReprMockTransaction = from_json_str(&content).expect("json parsing");
     let mock_tx: MockTransaction = repr_tx.into();
 
@@ -114,5 +124,6 @@ fn main() {
     }
     let runtime_nanoseconds = total_runtime.as_nanos() / vm_sample_times as u128;
 
+    println!("{} cycles", cycle);
     println!("{} nanoseconds", runtime_nanoseconds);
 }

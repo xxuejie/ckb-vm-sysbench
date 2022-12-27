@@ -414,6 +414,7 @@ dependencies = [
  "ckb-traits",
  "ckb-types",
  "clap",
+ "flate2",
  "serde",
  "serde_derive",
  "serde_json",
