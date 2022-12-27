@@ -1,0 +1,22 @@
+[package]
+name = "ckb-vm-sysbench"
+description = "A tool to bench ckb-vm across many different architectures"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "runner"
+path = "src/runner.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ckb-script = { path = "./script", features = ["asm"] }
+ckb-jsonrpc-types = "=0.105.1"
+ckb-traits = "=0.105.1"
+ckb-types = "=0.105.1"
+serde = "1.0"
+serde_derive = "1.0"
+serde_json = "1.0"
+
+clap = { version = "4.0.27", features = ["cargo"] }

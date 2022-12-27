@@ -1,0 +1,40 @@
+[package]
+name = "ckb-script"
+version = "0.107.0-pre"
+license = "MIT"
+authors = ["Nervos Core Dev <dev@nervos.org>"]
+edition = "2021"
+build = "build.rs"
+description = "CKB component to run the type/lock scripts."
+homepage = "https://github.com/nervosnetwork/ckb"
+repository = "https://github.com/nervosnetwork/ckb"
+
+[features]
+default = ["logging", "detect-asm"]
+
+asm = ["ckb-vm/asm"]
+detect-asm = ["ckb-vm/detect-asm"]
+logging = ["ckb-logger"]
+
+[dependencies]
+ckb-traits = { version = "= 0.105.1" }
+byteorder = "1.3.1"
+ckb-types = { version = "= 0.105.1" }
+ckb-hash = { version = "= 0.105.1" }
+ckb-vm = { path = "../ckb-vm", default-features = false }
+faster-hex = "0.6"
+ckb-logger = { version = "= 0.105.1", optional = true }
+serde = { version = "1.0", features = ["derive"] }
+ckb-error = { version = "= 0.105.1" }
+ckb-chain-spec = { version = "= 0.105.1" }
+
+[dev-dependencies]
+proptest = "1.0"
+ckb-db = { version = "= 0.105.1" }
+ckb-store = { version = "= 0.105.1" }
+ckb-test-chain-utils = { version = "= 0.105.1" }
+tiny-keccak = { version = "2.0", features = ["sha3"] }
+ckb-crypto = { version = "= 0.105.1" }
+ckb-db-schema = { version = "= 0.105.1" }
+tempfile = "3.0"
+rand = "0.8.4"
