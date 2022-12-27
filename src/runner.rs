@@ -1,9 +1,7 @@
-mod mock_tx;
-
+use ckb_mock_tx_types::{MockTransaction, ReprMockTransaction, Resource};
 use ckb_script::{ScriptGroupType, TransactionScriptsVerifier};
 use ckb_types::core::cell::resolve_transaction;
 use clap::{arg, command, value_parser};
-use mock_tx::{MockTransaction, ReprMockTransaction, Resource};
 use serde_json::from_str as from_json_str;
 use std::collections::HashSet;
 use std::fs::read_to_string;

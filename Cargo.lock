@@ -232,6 +232,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "ckb-mock-tx-types"
+version = "0.105.1"
+source = "git+https://github.com/cryptape/ckb-mock-tx-types?rev=ff9e285#ff9e2855d4d619eacebf05440ea3aedaab1188c8"
+dependencies = [
+ "ckb-jsonrpc-types",
+ "ckb-traits",
+ "ckb-types",
+ "serde",
+ "serde_derive",
+]
+
+[[package]]
 name = "ckb-occupied-capacity"
 version = "0.105.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -397,6 +409,7 @@ name = "ckb-vm-sysbench"
 version = "0.1.0"
 dependencies = [
  "ckb-jsonrpc-types",
+ "ckb-mock-tx-types",
  "ckb-script",
  "ckb-traits",
  "ckb-types",
