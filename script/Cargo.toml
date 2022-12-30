@@ -17,24 +17,24 @@ detect-asm = ["ckb-vm/detect-asm"]
 logging = ["ckb-logger"]
 
 [dependencies]
-ckb-traits = { version = "= 0.105.1" }
+ckb-traits = { version = "= 0.106.0" }
 byteorder = "1.3.1"
-ckb-types = { version = "= 0.105.1" }
-ckb-hash = { version = "= 0.105.1" }
+ckb-types = { version = "= 0.106.0" }
+ckb-hash = { version = "= 0.106.0" }
 ckb-vm = { path = "../ckb-vm", default-features = false }
 faster-hex = "0.6"
-ckb-logger = { version = "= 0.105.1", optional = true }
+ckb-logger = { version = "= 0.106.0", optional = true }
 serde = { version = "1.0", features = ["derive"] }
-ckb-error = { version = "= 0.105.1" }
-ckb-chain-spec = { version = "= 0.105.1" }
+ckb-error = { version = "= 0.106.0" }
+ckb-chain-spec = { version = "= 0.106.0" }
 
 [dev-dependencies]
 proptest = "1.0"
-ckb-db = { version = "= 0.105.1" }
-ckb-store = { version = "= 0.105.1" }
-ckb-test-chain-utils = { version = "= 0.105.1" }
+ckb-db = { version = "= 0.106.0" }
+ckb-store = { version = "= 0.106.0" }
+ckb-test-chain-utils = { version = "= 0.106.0" }
 tiny-keccak = { version = "2.0", features = ["sha3"] }
-ckb-crypto = { version = "= 0.105.1" }
-ckb-db-schema = { version = "= 0.105.1" }
+ckb-crypto = { version = "= 0.106.0" }
+ckb-db-schema = { version = "= 0.106.0" }
 tempfile = "3.0"
 rand = "0.8.4"
